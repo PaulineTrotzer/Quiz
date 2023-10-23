@@ -7,6 +7,9 @@
     <title>Quiz</title>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+
+
 
     <!-- Bootstrap files-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,26 +17,86 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
- <!-- Bootstrap files ENDE-->
+    <!-- Bootstrap files ENDE-->
 
 </head>
 
 
-<nav class="navbar navbar-light bg-light">
-    <h1 class="navbar-brand mb-0 h1">QuizApp</h1>
-  </nav>
+<body onload="init()">
 
-<body>
-
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <h1 class="navbar-brand mb-0 h1">QuizApp</h1>
         </div>
-      </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="card quiz-card">
+            <img id="header-image" class="card-img-top" src="./img/question-pic.png">
+
+            <div class="progress">
+                <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+            </div>
+
+            <div class="card-body text-center" id="endScreen" style="display: none;">
+                <span class="quiz-is-ended">Quiz beendet!</span>
+
+
+                <div class="text-center final-display-text">
+                    Du hast <b id="amount-of-right-questions">xx</b> Fragen von <b id="amount-of-questions">xxx</b>
+                    richtig beantwortet
+                </div>
+
+                <div class="button-row">
+                <button onclick="restartGame()" class="btn btn-info" id="restart-button">
+                    <span class="next-q">Restart</span></button>
+                </div>
+
+            </div>
+
+
+            <div class="card-body" id="questionBody">
+                <h5 class="card-title" id="questiontext">Frage</h5>
+
+                <div class="card quiz-answerc mb-2" onclick="answer('answer_1')">
+                    <div class="card-body" id="answer_1">
+                        Antwort
+                    </div>
+                </div>
+
+                <div class="card quiz-answerc mb-2" onclick="answer('answer_2')">
+                    <div class="card-body" id="answer_2">
+                        Antwort
+                    </div>
+                </div>
+
+                <div class="card quiz-answerc mb-2" onclick="answer('answer_3')">
+                    <div class="card-body" id="answer_3">
+                        Antwort
+                    </div>
+                </div>
+
+                <div class="card quiz-answerc mb-2" onclick="answer('answer_4')">
+                    <div class="card-body" id="answer_4">
+                        Antwort
+                    </div>
+                </div>
+
+                <div class="question-footer">
+                    <span>
+                        <b id="question-number">1</b> von <b id="all-questions">7</b> Fragen
+                    </span>
+                    <button onclick="nextQuestion()" class="btn btn-info" id="next-button" disabled>
+                        <span class="next-q">Nächste Frage</span></button>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
 
 </body>
 
