@@ -77,6 +77,18 @@ function init() {
     showQuestion();
 }
 
+function openQuiz() {
+    document.getElementById('standard-container').style = 'display: none';
+    document.getElementById('red-btn').style = 'display: none';
+    document.getElementById('quiz-card').style = '';
+    document.getElementById('only-question-container').style ='';
+
+    showQuestion(); /*um die erste Frage anzuzeien*/
+
+
+
+}
+
 
 function showQuestion() {
     if (gameIsOver()) {
@@ -124,7 +136,7 @@ function rightAnswerSelected(selectedQuestionNumber) {
 function showEndScreen() {
     document.getElementById('endScreen').style = '';
     document.getElementById('questionBody').style = 'display: none';
-    document.getElementById('header-image').src = './img/trophy.png';
+    document.getElementById('header-image').src = './img/trophy.png';/* id existiert nicht mehr!!*/
     document.getElementById('amount-of-right-questions').innerHTML = rightQuestions; /* richtige Antworten*/
     document.getElementById('amount-of-questions').innerHTML = questions.length; /* xxx von (7, also questions.length)*/
 }
